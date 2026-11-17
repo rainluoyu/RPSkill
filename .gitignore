@@ -1,0 +1,43 @@
+# Generated executables, embedded frontend, and release packages
+/build/
+/dist/
+/skill/rp/bin/
+/internal/server/ui/
+*.exe
+*.dll
+*.so
+*.dylib
+*.test
+
+# Dependencies and generated reports
+node_modules/
+/coverage.out
+coverage/
+test-results/
+**/__pycache__/
+*.pyc
+.venv/
+
+# Local credentials, runtime data, and machine-specific configuration
+.env
+.env.*
+!.env.example
+*.local
+*.log
+connection.json
+server.json
+*.key
+*.pem
+.codex/
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Real RP workspaces belong outside this source repository.
+# Keep the intentionally public example workspace under examples/.
+/rp.yaml
+/characters/
+/worldbook/
+/chats/
+/MyRP/

@@ -1,0 +1,17 @@
+narrative:
+  perspective: third
+polishing:
+  level: basic
+worldbook:
+  scan_recent: 0
+  categories:
+    locations: true
+    magic: true
+    world: true
+  entries:
+    world/history: true
+    locations/observatory: true
+    magic/tide-signal: true
+characters:
+  alice: true
+  bob: true
