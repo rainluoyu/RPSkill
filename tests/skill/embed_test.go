@@ -70,7 +70,7 @@ func TestFilesContainsOnlyInstallableText(t *testing.T) {
 
 func TestFilesDoesNotExposeBinaryOrDevelopmentFiles(t *testing.T) {
 	for _, name := range []string{
-		"bin", "bin/rps", "bin/rps.exe", "bin/.gitkeep",
+		"bin", "bin/rps", "bin/rps.exe", "bin/rps.here",
 		"rp/SKILL.md", "PHASE0.md", "PHASE1.md", "PHASE2.md", "PHASE6.md",
 		"embed.go", "embed_test.go", "narrative_test.go", "tests/test_structure.py",
 		"tests/narrative_cases.json", "tests/wirepeer/main.go",

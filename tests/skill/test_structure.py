@@ -28,12 +28,12 @@ REFERENCES = {
 class SkillStructureTests(unittest.TestCase):
     def test_skill_tree_contains_only_distributable_files(self):
         self.assertEqual({p.name for p in SKILL.parent.iterdir()}, {"rp"})
-        self.assertEqual({p.name for p in SKILL.iterdir()} - {"bin"},
-                         {"SKILL.md", "builtins", "references"})
+        self.assertEqual({p.name for p in SKILL.iterdir()},
+                         {"SKILL.md", "builtins", "references", "bin"})
         self.assertEqual({p.name for p in (SKILL / "references").iterdir()}, REFERENCES)
         for path in SKILL.rglob("*"):
             self.assertFalse(path.is_symlink(), str(path))
-            if path.is_file():
+            if path.is_file() and path != SKILL / "bin/rps.here":
                 self.assertIn(path.suffix, {".md", ".exe", ""}, str(path))
 
     def test_required_documents_are_nonempty_utf8(self):
@@ -74,11 +74,10 @@ class SkillStructureTests(unittest.TestCase):
         )
 
     def test_bin_contains_no_fake_executables(self):
-        if not (SKILL / "bin").exists():
-            return  # A source checkout contains only Skill text.
+        self.assertTrue((SKILL / "bin/rps.here").is_file(), "Missing source directory marker")
         for path in (SKILL / "bin").iterdir():
             with self.subTest(file=path.name):
-                if path.name == ".gitkeep":
+                if path.name == "rps.here":
                     self.assertEqual(path.read_bytes(), b"")
                     self.assertFalse(path.is_symlink())
                     self.assertFalse(path.stat().st_mode & 0o111)

@@ -1,7 +1,8 @@
 # Generated executables, embedded frontend, and release packages
 /build/
 /dist/
-/skill/rp/bin/
+/skill/rp/bin/*
+!/skill/rp/bin/rps.here
 /internal/server/ui/
 *.exe
 *.dll
